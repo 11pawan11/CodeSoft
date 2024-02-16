@@ -4,3 +4,24 @@
 @import 'tailwindcss/utilities';
 
 /* Your custom styles go here */
+
+.FixedImage{
+width: 100%;
+height: 1000px;;
+background-position: center;
+background-size: auto;
+background-image: url(/public/pawan.jpg);
+background-attachment: fixed;
+
+}
+
+.container {
+    padding: 10px, 10%;
+}
+
+
+
+/* nav ul li {
+    display: inline-block;
+    margin : 10px 20px;
+} */
