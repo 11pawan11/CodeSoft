@@ -20,8 +20,24 @@ background-attachment: fixed;
 }
 
 
+ /* nav ul li Link{
+    position: relative;
+    color:#fff;
+    font-size: 18px;    
 
-/* nav ul li {
-    display: inline-block;
-    margin : 10px 20px;
+} */
+
+/* .trans ::after{
+   content: '';
+   width:0;
+   height: 3px;
+   background-color: #ff004f;
+   left:0;
+   bottom:6px;
+   transition: 0.5s;
+}  */
+/* .flex:hover .bg-pink-700 {
+    background-color: #ff004f; 
+    transition: 0.5s;
+    left0;
 } */

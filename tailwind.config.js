@@ -24,9 +24,13 @@ module.exports = {
         'poppins-black-italic': ['Poppins', 'sans-serif'],
       },
     },
-  },
-  screens : {
-    "xsm" :"350px"
-  },
+  
+  // screens : {
+  //   "xsm" :"200px",
+  //   "sm": "640px",
+  //   "md" : "750",
+  //   "lg" : "1024"
+  // },
+},
   plugins: [],
 }
