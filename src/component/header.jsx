@@ -5,7 +5,16 @@
 
 
   const Header = () => {
+    const scrollTo = (id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+    
   
+
+    
 
     
     return (
@@ -26,28 +35,28 @@
             <img src='/logo.jpg' alt="my pic" className='h-40 w-40 rounded-full object-cover'/>
             
           
-        <nav className="justify-between align-middle flex-wrap ml-auto xsm:ml-auto">
-        <ul className='flex space-x-20 py-8 relative'> 
+      <nav className="justify-between align-middle flex-wrap ml-auto xsm:ml-auto text-white">
+      <ul className='flex space-x-8 py-8 relative'> 
       
       <li>
-      <Link to="#" className='flex items-center text-white hover:bg-pink-700 h-0.5 w-0 transition-all hover:w-auto duration-[0.5s] absolute'>
-        <span className='-mt-7'>Home</span>
+      <Link to="#" className='about'>
+        <span>Home</span>
         </Link>  
         </li>
-        <li>
-        <Link to="#" className='flex items-center text-white hover:bg-pink-700 h-0.5 w-0  hover:transition hover:w-auto hover:duration-500 absolute '>
-        <span className='-mt-7'>About</span>
+        <li id="About">
+        <Link to="" className='about' onClick={()=>scrollTo('About')}>
+        <span>About</span>
         </Link>  
           </li>
         <li>
-        <Link to="#" className='flex items-center text-white hover:bg-pink-700 h-[2px] w-0 hover:transition hover:w-auto hover:duration-500 absolute '>
-        <span className='-mt-7'>Skills</span>
+        <Link to="#" className='about'>
+        <span>Skills</span>
         {/* <span className='bg-pink-700 h-0.5 w-full absolute -mt-7'></span> */}
         </Link>        
          </li>
         <li>
-        <Link to="#" className='flex items-center text-white hover:bg-pink-700 h-0.5 w-0  hover:transition hover:w-auto hover:duration-500 absolute'>
-        <span className='-mt-7'>Contact</span>
+        <Link to="#" className='about'>
+        <span>Contact</span>
         </Link> 
         {/* <Link to="#" className='flex items-center text-white relative'>
         <span className='mb-2'>Contact</span>
@@ -64,7 +73,7 @@
         </div>
         <div className='mt-[50px] ml-10'>
           <span className='font-bold text-white text-[100px] xsm:text-[50px]'>Its Me Pawan</span>
-          <p className='font-poppins-semibold text-white text-4xl group-hover:transition  hover:duration-1000 hover:text-blue-900'>Frontend Developer</p>
+          <p className='font-semibold text-white text-xl transition-all duration-1000 hover:text-blue-900'>Frontend Developer & DevOps Enthusiastic</p>
         </div>
       </div>
       </div>

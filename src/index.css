@@ -4,6 +4,9 @@
 @import 'tailwindcss/utilities';
 
 /* Your custom styles go here */
+*{
+  font-family: sans-serif
+}
 
 .FixedImage{
 width: 100%;
@@ -27,17 +30,24 @@ background-attachment: fixed;
 
 } */
 
-/* .trans ::after{
-   content: '';
-   width:0;
-   height: 3px;
-   background-color: #ff004f;
-   left:0;
-   bottom:6px;
-   transition: 0.5s;
-}  */
-/* .flex:hover .bg-pink-700 {
-    background-color: #ff004f; 
-    transition: 0.5s;
-    left0;
-} */
+.about {
+    position: relative;
+    padding-bottom: 8px; /* Add some padding at the bottom */
+    margin-right: 20px; /* Add some spacing between list items */
+    list-style: none; /* Remove default list styles */
+  }
+  
+  .about::after {
+    content: '';
+    width: 0;
+    height: 2px; /* Set the height of the border */
+    background-color: #ff004f; /* Set the color of the border */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s; /* Transition the width property over 0.3 seconds */
+  }
+  
+  .about:hover::after {
+    width: 100%; /* Expand the border on hover */
+  }
