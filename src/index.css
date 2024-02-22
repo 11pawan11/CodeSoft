@@ -10,7 +10,7 @@
 
 .FixedImage{
 width: 100%;
-height: 1000px;;
+height: 100vh;
 background-position: center;
 background-size: auto;
 background-image: url(/public/pawan.jpg);
@@ -23,18 +23,12 @@ background-attachment: fixed;
 }
 
 
- /* nav ul li Link{
-    position: relative;
-    color:#fff;
-    font-size: 18px;    
-
-} */
 
 .about {
     position: relative;
-    padding-bottom: 8px; /* Add some padding at the bottom */
-    margin-right: 20px; /* Add some spacing between list items */
-    list-style: none; /* Remove default list styles */
+    padding-bottom: 8px; 
+    margin-right: 20px; 
+    list-style: none; 
   }
   
   .about::after {
@@ -51,3 +45,65 @@ background-attachment: fixed;
   .about:hover::after {
     width: 100%; /* Expand the border on hover */
   }
+
+  @media screen and (max-width: 300px) {
+    .grid-cols-1 {
+      grid-template-columns: 1fr;
+      text-size-adjust:18px;
+    }
+  
+  }
+  @media screen and (max-width: 640px) {
+    .about {
+      font-size: 14px; 
+    }
+  }
+
+  .homeButton {
+    background-color: green;
+    position: fixed;
+    top:0;
+    right: 0;
+    width: 200px;
+    height: 100vh;
+    padding-top: 50px;
+    color: black;
+    z-index: 20;
+  }
+
+.main-image img,
+.second-image img {
+  transition: opacity 0.3s ease-in-out; /* Smooth opacity transition */
+}
+
+/* Add a class for the currently active image */
+.active {
+  opacity: 1; /* Make the active image fully visible */
+}
+
+/* Adjust the opacity of inactive images */
+.second-image img:not(.active) {
+  opacity: 0.5; /* Reduce opacity for inactive images */
+}
+
+/* Add a transition for the main image */
+
+@keyframes scrollAnimation {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to the main image */
+.scroll-animation {
+  animation: scrollAnimation 0.5s ease-in-out; /* Apply the animation */
+}
+
+  
+
+  

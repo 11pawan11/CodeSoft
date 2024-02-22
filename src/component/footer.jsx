@@ -1,31 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LiaCopyrightSolid } from "react-icons/lia";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-sm py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between">
-          <div className="flex items-center mb-4 md:mb-0">
-            <p className="text-white">© 2024 Your Website</p>
-          </div>
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:mr-4 mb-4 md:mb-0">
-              <p className="text-gray-300">Jadibuti, Narephate, Kathmandu City</p>
-              <p className="text-gray-300">Country: Nepal</p>
-            </div>
-            <div className="md:mr-4 mb-4 md:mb-0">
-              <p className="text-gray-300">Phone: +977-986628040, 9812176317</p>
-              <p className="text-gray-300">Email: pawanupreti35@gmail.com</p>
-            </div>
-            <div>
-              <Link to="/" className="text-gray-300 hover:text-white mr-4">Home</Link>
-              <Link to="/about" className="text-gray-300 hover:text-white mr-4">About</Link>
-              <Link to="/contact" className="text-gray-300 hover:text-white">Contact</Link>
-            </div>
-          </div>
+    <footer className="bg-black text-sm">
+      <div className='grid grid-cols-1 md:grid-cols-2 text-white gap-4 sm:text-sm'>
+        <div className='bg-black flex flex-col  lg:place-items-center justify-center items-center md:items-start space-y-2'>
+          <span className='font-bold text-3xl text-center '>Contact Me</span>
+          <a href="mailto:pawanupreti35@gmail.com" className='flex items-center gap-4 '>
+            <img src={"/gmail.svg"} alt='gmail' className='w-5 h-5 rounded-full items-center flex'/>
+            <span className='items-center'>pawanupreti35@gmail.com</span>
+          </a>
+
+          <Link to="tel:+977-9866284088" className='flex items-center gap-4 '>
+            <img src={"/phone.png"} alt='gmail' className='w-5 h-5 rounded-full items-center flex'/>
+            <span className='items-center'>+977-9866824088</span>
+          </Link>
+
+          {/* <div className=' h-10 w-full items-center'> */}
+            <ul className='flex items-center space-x-4  '>
+              <li><Link to="#"><img src={"/fb.svg"} alt='fb' className='w-6 h-6 hover:border-pink-600 hover:border-4 rounded-full'/></Link></li>
+              <li><Link to="#"><img src={"/linkedin.svg"} alt='ld' className='w-7 h-7 hover:border-pink-600 hover:border-4 rounded-full'/></Link></li>
+              <li><Link to="#"><img src={"/telegram.svg"} alt='telegram'className='w-7 h-7  hover:border-pink-600 hover:border-4 rounded-full'/></Link></li>
+              <li><Link to="#"><img src={"/gmail.svg"} alt='gmail' className='w-7 h-7  hover:border-pink-600 hover:border-4 rounded-full'/></Link></li>
+            </ul>
+          {/* </div>   */}
+          <button className='p-2 mt-4 text-white border w-40 border-pink-900 rounded  hover:bg-pink-700'>Download CV</button>
         </div>
-      </div>
+
+        <div className='bg-black p-2 space-y-4'>
+          <input type='text' placeholder='Your Name' className='p-2 w-full md:w-3/4 will-change-auto bg-stone-900 block'/> 
+          <input type='text' placeholder='Your Email' className='p-2 w-full md:w-3/4 bg-stone-900 block'/>
+          <textarea id="textareaField" name="textareaField" className="w-full md:w-3/4 bg-stone-900 p-2 rounded-md block py-2" rows="5" placeholder="Enter text..."></textarea>
+          <button className='border border-pink-800 text-white p-2 text-sm rounded w-full md:w-auto hover:bg-pink-700'>Send Message</button>
+        </div> 
+      </div>    
+      <p className='text-white justify-center items-center gap-1 flex text-xs p-2'><LiaCopyrightSolid className='text-lg'/> Copyright @2024 to 
+      <span className='font-semibold hover:text-pink-700' >Pawan Upreti</span></p>    
     </footer>
   );
 };

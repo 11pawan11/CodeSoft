@@ -1,48 +1,53 @@
-  import React, { useState } from 'react';
-  import { AboutMe } from './routes_about';
+import React, { useState } from 'react';
+import { AboutMe } from './routes_about';
 import Skills from './skills';
 import Experience from './experience';
 import Education from './education';
 
-  const About = () => {
-    const [showTab, setShowTab] = useState("skills");
+const About = () => {
+  const [showTab, setShowTab] = useState("skills");
 
-    const handeleTab  = (tab) => {
-      setShowTab(tab);
-    }
-    return (
-      <> 
-        <div className=' bg-black grid grid-cols-2 p-2'>
-        <div className='flex col-span-1 '>
-            <img src='/pasa.jpg' className='h-[500px] w-full object-contain rounded ' alt='Portrait' />
-        </div>
-          <div className='col-span-1 h-full w-full'>
-            <span className='text-white font-bold text-5xl p-2'>About Me </span>
-            <p className='text-white text-sm text-justify p-2 mr-4 '>
-              Sure! I'm an AI language model created by OpenAI called GPT-3. I'm designed to understand and generate human-like text based on the input I receive. My capabilities include answering questions, generating creative content, providing explanations, assisting with coding, and much more.
-              I've been trained on a diverse range of internet text up to January 2022, which means I can provide information on various topics up to that point in time. My purpose is to assist users like you with tasks and inquiries to the best of my abilities.
-              If you have any specific questions or topics you'd like to learn more absolute, feel free to ask, and I'll do my best to assist you!
-            </p>
-
-
-            
-              <ul className='text-white p-2 flex space-x-8 relative'>
-              {AboutMe.map((about)=>(
-                  <li key={about.link} className={`about font-bold ${showTab == about.title.toLocaleLowerCase() ? 'text-pink-700': ''}`} onClick={()=>handeleTab(about.title.toLocaleLowerCase())}>{about.title}</li>
-                    ))}
-              </ul>
-
-
-              <div className="p-2 text-sm text-white">
-                {showTab ==  "skills" && <Skills/>}                 
-                {showTab ==  "experience" && <Experience/>}
-                {showTab == "education" && <Education/>}                        
-              </div>   
-    
-          </div>          
-        </div>
-      </>
-    );
+  const handleTab = (tab) => {
+    setShowTab(tab);
   };
+  return (
+    <div className='bg-black p-2'>
+      <div className='flex flex-col sm:flex-row gap-4 sm:text-sm'>
+        <div className='flex-shrink-0 sm:w-1/3'>
+          <img src='/pasa.jpg' className='h-[500px] w-full object-contain rounded border border-stone-900' alt='Portrait'/>
+        </div>
+        <div className='flex flex-col sm:w-2/3'>
+          <h1 className='text-white font-bold text-3xl p-2'>About Me</h1>
+          <p className='text-white text-sm text-justify p-2'>
+            With a solid background in IT 👨‍💻. I've skills in Python, DevOps, JavaScript and its library for building
+            user interfaces React.js, TypeScript, MS Word, All kinds of Tender related stuff. My expertise extends to
+            troubleshooting computer hardware issues and managing networking intricacies. As a dedicated officer, I
+            thrive in the dynamic landscape of technology procurement and implementation. Outside the tech world, I
+            enjoy playing football ⚽️, engaging in chess ♟️ matches, solving Rubik's cubes, and diving into books.
+            Whether strumming the guitar 🎸 or troubleshooting network problems, I find joy in a mix of interests,
+            reflecting my commitment to learning and embracing technology from various angles.
+          </p>
+          <ul className='text-white p-2 flex space-x-6 text-sm relative flex-wrap'>
+            {AboutMe.map((about) => (
+              <li
+                key={about.link}
+                className={`about text-sm font-bold ${showTab === about.title.toLocaleLowerCase() ? 'text-pink-700' : ''}`}
+                onClick={() => handleTab(about.title.toLocaleLowerCase())}
+                 // Set default font size for larger screens
+              >
+                {about.title}
+              </li>
+            ))}
+          </ul>
+          <div className='p-2 text-sm text-white'>
+            {showTab === 'skills' && <Skills />}
+            {showTab === 'experience' && <Experience />}
+            {showTab === 'education' && <Education />}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-  export default About;
+export default About;
