@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GrNext, GrPrevious } from "react-icons/gr";
-import { previous, seemore } from './text';
+import { previous, seemore, work } from './text';
 
 const Mywork = ({ images }) => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -58,7 +58,7 @@ const Mywork = ({ images }) => {
   return (
     <>
       <div className='bg-black text-white p-4'>
-        <p className='text-white text-center text-4xl p-4 sm:text-center font-bold'>My Work</p>
+        <p className='text-white text-center text-4xl p-4 sm:text-center font-bold'>{work}</p>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 items-center'>
           {images.slice(0, displayedColumns).map((image, columnIndex) => (
             <div key={columnIndex} className='border border-pink-700'>
@@ -77,7 +77,7 @@ const Mywork = ({ images }) => {
                     key={index}
                     src={image}
                     alt={`Thumbnail ${index + 1}`}
-                    className={`w-20 h-20 items-center justify-items-center hover:opacity-50 ${index === currentImage ? 'active' : ''}`}
+                    className={`w-10 items-center justify-items-center hover:opacity-50 ${index === currentImage ? 'active' : ''}`}
                     onClick={() => handleImageView(index)}
                   />
                 ))}

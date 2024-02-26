@@ -4,6 +4,7 @@ import { IoCodeSlashSharp } from "react-icons/io5";
 // this is mywork section
 export const seemore = "See More";
 export const previous = "Previous";
+export const work = "My Work";
 
 // this is footer section
 export const email = "pawanupreti35@gmail.com";
@@ -54,6 +55,8 @@ export const ServicesRoute = [
     path: "See More",
   },
 ];
+
+
 // this is about section
 export const about = "About Me";
 export const AboutMy = `With a solid background in IT 👨‍💻. I've skills in Python, DevOps, JavaScript and its library for building user interfaces React.js, 
@@ -63,5 +66,64 @@ export const AboutMy = `With a solid background in IT 👨‍💻. I've skills i
                            enjoy playing football ⚽️, engaging in chess ♟️ matches, solving Rubik's cubes, and diving into books.
                            Whether strumming the guitar 🎸 or troubleshooting network problems, I find joy in a mix of interests,
                            reflecting my commitment to learning and embracing technology from various angles.`;
+// this is my skills section
+export const skillData =  [
+        {
+            "category": "Programming Language",
+            "skills": ["HTML", "CSS, Tailwind CSS, Bootstrap", "Javascript, React Js, Typescript", "Python"]
+          },
+          {
+            "category": "Networking",
+            "skills": ["Ethical Hacking", "DevOps"]
+          },
+          {
+            "category": "Operating System",
+            "skills": ["Both Windows & Linux OS"]
+          }    
 
-export const test = "";
+];
+
+
+// this is my experience section
+
+export const experienceData = 
+[
+    {
+      "duration": "2 years",
+      "position": "IT consultant and Procurement Officer",
+      "employer": "Janamukti Health Enterprises"
+    },
+    {
+      "duration": "Currently Working (3 months)",
+      "position": "Frontend Developer",
+      "employer": "Silicontech Pvt. Ltd."
+    }
+  ];
+
+// this is my education section
+
+export const educationData =
+[
+    {
+      "year": "2013",
+      "qualification": "SLC",
+      "institution": "Tripura Glorious Academy, Charikot, Dolakha"
+    },
+    {
+      "year": "2015",
+      "qualification": "+2 Science",
+      "institution": "Capital College and Research Center"
+    },
+    {
+      "year": "2016",
+      "qualification": "Bachelor in Engineering Information Technology (BEIT)",
+      "institution": "NCIT"
+    }
+  ];
+
+//   this is my header section
+
+export const position = "Frontend Developer & DevOps Enthusiastic";
+export const Mine = "Its Me Pawan";
+export const country = "Nepal";
+  

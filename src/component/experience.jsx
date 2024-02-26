@@ -1,27 +1,18 @@
 import React from 'react'
+import { experienceData } from './text';
 
 const Experience = () => {
   return (
-    <>
     <div className='sm:text-sm'>
-    <ul>
-      <ul>
-        <li className='text-pink-700 font-bold'>2 years</li>        
+    {experienceData.map((experience, index) => (
+      <ul key={index}>
+        <li className='text-pink-700 font-bold'>{experience.duration}</li>
+        <li>{experience.position}</li>
+        <li className='text-pretty text-sm'>Employer: {experience.employer}</li>
       </ul>
-        <li>IT consultant and Procurement Officer </li>
-        <li className='text-pretty text-sm'>Employer: Janamukti Health Enterprises</li>
-        <ul>
-          <li className='text-pink-700 font-bold mt-4 text-sm'>Currently Working (3 months)</li>
-        </ul>
-        <li> Fronend Developer </li>
-        <li className='text-pretty text-sm'>Employer: Silicontech Pvt. Ltd.</li>
-        
-     </ul>
-    </div>
-
-
-    </>
-  )
-}
+    ))}
+  </div>
+);
+};
 
 export default Experience;

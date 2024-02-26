@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from "react-icons/fa"; // Import FaTimes for close icon
+import { Mine, country, position } from './text';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,11 +55,10 @@ const Header = () => {
           </div>
         </div>
         <div className='ml-10'>
-          <h1 className='font-bold text-white text-6xl mb-4'>Its Me Pawan</h1>
-          <p className='text-white text-6xl font-bold mb-4'>from <span className='font-bold text-pink-700 text-6xl'>Nepal</span></p>
+          <h1 className='font-bold text-white text-6xl mb-4'>{Mine}</h1>
+          <p className='text-white text-6xl font-bold mb-4'>from <span className='font-bold text-pink-700 text-6xl'>{country}</span></p>
           <p className='font-semibold text-white text-lg sm:text-2xl transition-all duration-1000 hover:text-blue-900'>
-            Frontend Developer & DevOps Enthusiastic
-          </p>
+          {position}</p>
         </div>
       </div>
     </div>
