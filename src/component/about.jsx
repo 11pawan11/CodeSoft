@@ -3,6 +3,7 @@ import { AboutMe } from './routes_about';
 import Skills from './skills';
 import Experience from './experience';
 import Education from './education';
+import { AboutMy, about } from './text';
 
 const About = () => {
   const [showTab, setShowTab] = useState("skills");
@@ -17,15 +18,9 @@ const About = () => {
           <img src='/pasa.jpg' className='h-[500px] w-full object-contain rounded border border-stone-900' alt='Portrait'/>
         </div>
         <div className='flex flex-col sm:w-2/3'>
-          <h1 className='text-white font-bold text-3xl p-2'>About Me</h1>
+          <h1 className='text-white font-bold text-3xl p-2'>{about}</h1>
           <p className='text-white text-sm text-justify p-2'>
-            With a solid background in IT 👨‍💻. I've skills in Python, DevOps, JavaScript and its library for building
-            user interfaces React.js, TypeScript, MS Word, All kinds of Tender related stuff. My expertise extends to
-            troubleshooting computer hardware issues and managing networking intricacies. As a dedicated officer, I
-            thrive in the dynamic landscape of technology procurement and implementation. Outside the tech world, I
-            enjoy playing football ⚽️, engaging in chess ♟️ matches, solving Rubik's cubes, and diving into books.
-            Whether strumming the guitar 🎸 or troubleshooting network problems, I find joy in a mix of interests,
-            reflecting my commitment to learning and embracing technology from various angles.
+            {AboutMy}
           </p>
           <ul className='text-white p-2 flex space-x-6 text-sm relative flex-wrap'>
             {AboutMe.map((about) => (

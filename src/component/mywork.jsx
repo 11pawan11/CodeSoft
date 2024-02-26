@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GrNext, GrPrevious } from "react-icons/gr";
+import { previous, seemore } from './text';
 
 const Mywork = ({ images }) => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -88,14 +89,14 @@ const Mywork = ({ images }) => {
         {displayedColumns < images.length && ( // Render the "See More" button only if there are more columns to display
            <div className="text-center p-4">
             <button className="p-2 rounded mb-4 bg-pink-700 text-white hover:bg-blue-800" onClick={handleSeeMore}>
-              See More
+              {seemore}
             </button>
           </div>         
         )}
           {displayedColumns > 2 && ( // Render the "Previous" button only if there are more than 2 columns displayed
           <div className="text-center p-4">
             <button className="p-2 rounded mb-4 bg-pink-700 text-white hover:bg-blue-800" onClick={handlePrevious}>
-              Previous
+              {previous}
             </button>
           </div>
         )}
