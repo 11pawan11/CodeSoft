@@ -8,12 +8,13 @@ export const work = "My Work";
 
 // this is footer section
 export const email = "pawanupreti35@gmail.com";
-export const contact = "Contact Me";
+export const contact = "Contact Info";
 export const phoneno = "+977-9866284088";
 export const sendMessage = "Send Message";
 export const copyRight = "Copyright @2024 to";
 export const MyName = "Pawan Upreti";
 export const downloadCv = "Download CV";
+export const contactForm = "Contact Form";
 
 // this is services section
 export const services = "My Services";
@@ -127,3 +128,5 @@ export const position = "Frontend Developer & DevOps Enthusiastic";
 export const Mine = "Its Me Pawan";
 export const country = "Nepal";
   
+// this is the certifications section
+export const certifications = "My Certification";
