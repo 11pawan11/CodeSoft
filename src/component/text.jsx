@@ -130,3 +130,23 @@ export const country = "Nepal";
   
 // this is the certifications section
 export const certifications = "My Certification";
+
+
+
+// this is the userprofile section
+
+export const userProfile = [
+{
+  "link" : '/myprofile',
+  "title" : 'My Profile'
+  },
+{
+  "link" : '/myAccount',
+  "title" : 'My Account'
+},
+{
+  "link" : '/logout',
+  "title" : 'Logout'
+}
+
+]

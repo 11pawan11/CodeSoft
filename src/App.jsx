@@ -7,6 +7,7 @@ import Mywork from './component/mywork';
 import Certification from './component/certification';
 import Header from './component/header';
 import Login from './dashboard/login';
+import DefaulyLayout from './dashboard/defaultLayout';
 
 const App = () => {
   return (
@@ -19,7 +20,8 @@ const App = () => {
         <Route path='/mywork' element={<Mywork/>}/>
         <Route path='/footer' element={<Footer/>}/>
         <Route path='/certifications' element={<Certification/>}/>
-        <Route path='/admin' element={<Login/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/defaultLayout' element={<DefaulyLayout/>}/>
 
 
 
