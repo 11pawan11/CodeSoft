@@ -7,26 +7,42 @@ import Mywork from './component/mywork';
 import Certification from './component/certification';
 import Header from './component/header';
 import Login from './dashboard/login';
-import DefaulyLayout from './dashboard/defaultLayout';
+import DefaultLayout from './dashboard/defaultLayout';
+import { Suspense } from 'react';
+import Loader from './loader';
+import routes from './dashboard/dashboard component/dashboardRoute';
+import { ImageProvider } from './component/conext api/imageContext';
 
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path='/' element={<MainHeader />} />
-        <Route path='/header' element={<Header/>} />
-        <Route path='/about' element={<About/>}/>
-        <Route path='/services' element={<Services/>}/>
-        <Route path='/mywork' element={<Mywork/>}/>
-        <Route path='/footer' element={<Footer/>}/>
-        <Route path='/certifications' element={<Certification/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/defaultLayout' element={<DefaulyLayout/>}/>
+      <ImageProvider>
+        <Routes>
+          <Route path='/' element={<MainHeader />} />
+          <Route path='/header' element={<Header />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/services' element={<Services />} />
+          <Route path='/mywork' element={<Mywork />} />
+          <Route path='/footer' element={<Footer />} />
+          <Route path='/certifications' element={<Certification />} />
+          <Route path='/login' element={<Login />} />
 
+          <Route path='/defaultLayout' element={<DefaultLayout />} />
 
-
-         
-      </Routes>
+          <Route element={<DefaultLayout />}>
+            {routes.map((route, index) => {
+              const { link, component: Component } = route;
+              return (
+                <Route key={index} path={link} element={
+                  <Suspense fallback={<Loader />}>
+                    <Component />
+                  </Suspense>
+                } />
+              );
+            })}
+          </Route>
+        </Routes>
+      </ImageProvider>
     </Router>
   );
 }

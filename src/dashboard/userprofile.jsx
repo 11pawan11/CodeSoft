@@ -22,17 +22,17 @@ const UserProfile = () => {
 
     return (
         <>
-            <div className="relative inline-block">
+            <div className="relative inline-block w-full">
                 <img
                     ref={imgRef}
-                    src={auth.currentUser?.photoURL || `/public/pasa.jpg`}
+                    src={auth.currentUser?.photoURL || `/default.jpg`}
                     alt="avatar"
-                    className="rounded-full h-10 w-10 border cursor-pointer"
+                    className="rounded-full h-9 w-10  dark:border-white dark:border cursor-pointer"
                     onClick={() => setOpen(!open)} />
 
                 <div
                     ref={menuRef}
-                    className={`absolute top-full -right-4 z-10 bg-white dark:bg-gray-600 dark:text-white border rounded shadow-lg ${open ? 'block' : 'hidden'} mt-4`}
+                    className={`absolute top-full -right-4 z-10 bg-white dark:bg-gray-600 dark:text-white border rounded shadow-lg ${open ? 'block' : 'hidden'} mt-5`}
                 >
                     <ul className="flex flex-col w-[150px] ">
                         {userProfile.map((profile) => (

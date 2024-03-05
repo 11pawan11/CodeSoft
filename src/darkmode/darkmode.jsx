@@ -5,6 +5,7 @@ const DarkMode = () => {
   const [colorMode, setColorMode] = useColorMode();
 
   return (
+    <ul>
     <li>
       <label
         className={`relative m-0 block h-7 w-14 bg-gray-400 rounded-full ${
@@ -34,6 +35,7 @@ const DarkMode = () => {
         </span>
       </label>
     </li>
+    </ul>
   );
 };
 

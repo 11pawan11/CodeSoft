@@ -1,11 +1,10 @@
-
 import { NavLink, useLocation } from 'react-router-dom';
 import { AiOutlineDashboard } from "react-icons/ai";
 import { RiImageAddLine } from "react-icons/ri";
 import { CiText } from "react-icons/ci";
 import { about, addImage, addText, dashboards } from '../component/text';
 import { MdOutlineMenuBook } from "react-icons/md";
-import { FaBars, FaBell, FaTimes } from 'react-icons/fa';
+import { FaBars, FaBell, FaCross, FaTimes } from 'react-icons/fa';
 import { useRef, useState } from 'react';
 
 const Sidebar = () => {
@@ -13,6 +12,7 @@ const Sidebar = () => {
   const { pathname } = location;
   const [open, setOpen] = useState(false);
 
+  // console.log("Test", open)
 
   const clickRef = useRef();
 
@@ -22,19 +22,21 @@ const Sidebar = () => {
 
     }
   }));
+
   const handleToggle = () => {
     setOpen(!open);
   };
 
-
   return (
-    <div>
-      <button ref={clickRef} onClick={handleToggle} className=" lg:hidden left-0 top-0 z-30 p-4 h-[74px] bg-slate-700 text-white">
+    <>
+
+      <button ref={clickRef} onClick={handleToggle} className="left-0 border-r top-0 z-30 p-3 mx-auto bg-gray-800 text-white">
         {open ? <FaTimes /> : <FaBars />}
       </button>
-      <nav className={`fixed top-0 left-0 font-semibold bottom-0 bg-gray-800 text-white z-20 transition-transform duration-300 ease-in-out transform ${open ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0 sm:relative sm:translate-y-0 sm:flex sm:flex-col sm:h-screen sm:w-56 sm:transition-none`}>
-        <div className='flex items-center gap-2 text-white mb-4 mt-10 font-extralight text-sm border-b border-white px-2'>
-          <MdOutlineMenuBook /><p>Dashboard Menu</p>
+
+      <nav className={`fixed top-0 left-10 bottom-0 bg-gray-800 text-white z-20 transition-transform duration-300 ease-in-out transform ${open ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className='flex items-center gap-2 text-white mb-4 mt-10 font-light text-sm border-b border-white px-2'>
+          <MdOutlineMenuBook /><p >Dashboard Menu</p>
         </div>
         <ul className="space-y-2">
           <li>
@@ -53,13 +55,13 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/notification" className={`text-white p-2 left-0 hover:bg-gray-700 text-sm text-center flex items-center gap-2 ${pathname.includes('notification') ? 'active' : ''}`}>
-              <FaBell /> Notification
+            <NavLink to="/about" className={`text-white p-2 left-0 hover:bg-gray-700 text-sm text-center flex items-center gap-2 ${pathname.includes('about') ? 'active' : ''}`}>
+              <FaBell /> {about}
             </NavLink>
           </li>
         </ul>
       </nav>
-    </div>
+    </>
   );
 }
 

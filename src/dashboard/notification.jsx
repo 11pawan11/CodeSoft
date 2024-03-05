@@ -34,6 +34,7 @@ const Notification = () => {
   });
 
   return (
+    <ul>
     <li className="relative">
       <Link
         ref={trigger}
@@ -124,6 +125,7 @@ const Notification = () => {
         </ul>
       </div>
     </li>
+    </ul>
   );
 };
 

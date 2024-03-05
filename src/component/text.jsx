@@ -150,3 +150,9 @@ export const userProfile = [
 }
 
 ]
+
+// this is dashboard section
+
+export const dashboards = "Dashboard";
+export const addImage = "Add Image";
+export const addText = "Add Text";
