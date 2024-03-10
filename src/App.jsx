@@ -12,11 +12,15 @@ import { Suspense } from 'react';
 import Loader from './loader';
 import routes from './dashboard/dashboard component/dashboardRoute';
 import { ImageProvider } from './component/conext api/imageContext';
+import { ToastProvider } from './component/conext api/toast';
+import { EditPagesProvider } from './component/conext api/textEditApi';
 
 const App = () => {
   return (
     <Router>
-      <ImageProvider>
+    <ToastProvider>
+    <EditPagesProvider>
+    <ImageProvider>
         <Routes>
           <Route path='/' element={<MainHeader />} />
           <Route path='/header' element={<Header />} />
@@ -43,6 +47,8 @@ const App = () => {
           </Route>
         </Routes>
       </ImageProvider>
+      </EditPagesProvider>
+    </ToastProvider>
     </Router>
   );
 }

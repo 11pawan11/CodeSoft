@@ -151,8 +151,22 @@ export const userProfile = [
 
 ]
 
-// this is dashboard section
+// this is dashboard sidebar section
 
 export const dashboards = "Dashboard";
-export const addImage = "Add Image";
-export const addText = "Add Text";
+export const addImage = "Update Image";
+export const addText = "Update Text";
+export const Notification= "Notification";
+export const EditAbout = "Edit About Section";
+export const EditServices = "Edit Service Section";
+export const EditMyWork = "Edit Work Section";
+export const EditCertification = "Edit Certification Section";
+export const EditContactForm = "Edit Contact Section";
+export const EditSkill = "Update Skill";
+export const EditExperience = "Update Experience";
+export const EditEducation = "Update Education";
+
+//this is the section for firebae update 
+
+export const updateNow = "Update Now"
+

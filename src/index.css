@@ -203,3 +203,26 @@ html {
   }
 
   
+  @media screen and (max-width: 320px) {
+    .textify{
+     width: 200px;
+    }
+  
+  }
+  @media screen and (max-width: 640px) {
+    .textify {
+      width: 300px ; 
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .updates {
+      margin-left: 100px ; 
+    }
+  }
+
+  .dropdown 
+  {
+    transition: all;
+    animation-duration: 0.5s;
+    
+  }

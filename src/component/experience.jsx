@@ -1,14 +1,17 @@
-import React from 'react'
-import { experienceData } from './text';
+
+import { useImage } from './conext api/imageContext';
 
 const Experience = () => {
+  const {experienceUpdate} = useImage();
+
   return (
     <div className='sm:text-sm'>
-    {experienceData.map((experience, index) => (
+    {experienceUpdate.map((experience, index) => (
       <ul key={index}>
-        <li className='text-pink-700 font-bold'>{experience.duration}</li>
-        <li>{experience.position}</li>
-        <li className='text-pretty text-sm'>Employer: {experience.employer}</li>
+        <li className='text-pink-700 font-bold'>{experience.name}</li>
+        {experience.skills.map((exp, expIndex)=>(
+          <li key={expIndex} className='text-pretty text-sm'>{exp}</li>
+    ))}
       </ul>
     ))}
   </div>
