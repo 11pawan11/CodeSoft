@@ -5,6 +5,7 @@ import { useEditPagesContext } from '../../../component/conext api/textEditApi';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { updateNow } from '../../../component/text';
+import { useToaster } from '../../../component/conext api/toast';
 
 const AddSkills = () => {
     const { categories, setCategories, newCategory, setNewCategory, newSkill, setNewSkill, 
@@ -12,8 +13,8 @@ const AddSkills = () => {
         setEditCategoryIndex, handleAddCategory, handleAddSkill, 
         handleDeleteCategory, handleDeleteSkill, handleEditCategory, 
         storeCategoriesInFirebase,activeCategoryIndex, setActiveCategoryIndex } = useEditPagesContext();
-
         const [newSkillInputs, setNewSkillInputs] = useState({}); // State to manage individual input fields
+        
         useEffect(()=>{
             const fetchCategoriesFromFirebase = async () => {
               try {

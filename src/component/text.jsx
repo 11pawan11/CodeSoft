@@ -27,7 +27,8 @@ export const ServicesRoute = [
     id: 1,
     topic: "Web Design",
     subtopic:
-      "Web design involves creating visually appealing, user-friendly websites that effectively communicate information and provide a seamless browsing experience.",
+    `Web design involves creating visually appealing, user-friendly websites that effectively 
+      communicate information and provide a seamless browsing experience.`,
     icon: <IoCodeSlashSharp />,
     path: "See More",
   },

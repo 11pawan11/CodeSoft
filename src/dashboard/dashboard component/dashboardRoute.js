@@ -1,4 +1,9 @@
 import { lazy } from "react";
+
+const AddContact = lazy(() => import ("./contact section/addContact"));
+const AddCertificate = lazy(() => import ("./certificate section/addCertificate"));
+const AddWork = lazy (() => import ("./work section/addWork"));
+const AddService = lazy(() => import ("./service section/addService"));
 const AddSkills = lazy(() => import("./aboutsection/addSkills"));
 const AddExperience = lazy(() => import ("./aboutsection/addExperience"));
 const AddEducation = lazy(()=>import ("./aboutsection/addEducation"));
@@ -38,11 +43,35 @@ const routes = [
         link: "/addExperience",
         title: "Add Experience",
         component: AddExperience
-    },  {
+    },  
+    {
         link: "/addEducation",
         title: "Add Education",
         component: AddEducation
+    },
+    {
+        link: "/addService",
+        title: "Edit Service",
+        component: AddService
+    },
+    {
+        link: "/addWork",
+        title: "Edit Work",
+        component: AddWork
+    },
+    {
+        link: "/addCertificate",
+        title: "Edit Certification",
+        component: AddCertificate
+    },
+    {
+        link: "/addContact",
+        title: "Edit Contact",
+        component: AddContact
     }
+    
+
+
 ];
 
 export default routes;

@@ -142,9 +142,9 @@ const Sidebar = () => {
 
           <li>
           <NavLink
-            to="/notification"
+            to="/addService"
             className={`text-white p-2 left-0 hover:bg-gray-700 text-sm text-center flex items-center gap-2 ${
-              pathname.includes("notification") ? "active" : ""
+              pathname.includes("addService") ? "active" : ""
             }`}
           >
             <GrServices/> {EditServices}
@@ -153,9 +153,9 @@ const Sidebar = () => {
 
         <li>
         <NavLink
-          to="/notification"
+          to="/addWork"
           className={`text-white p-2 left-0 hover:bg-gray-700 text-sm text-center flex items-center gap-2 ${
-            pathname.includes("notification") ? "active" : ""
+            pathname.includes("addWork") ? "active" : ""
           }`}
         >
           <PiProjectorScreenLight/> {EditMyWork}
@@ -163,9 +163,9 @@ const Sidebar = () => {
       </li>
       <li>
       <NavLink
-        to="/notification"
+        to="/addCertificate"
         className={`text-white p-2 left-0 hover:bg-gray-700 text-sm text-center flex items-center gap-2 ${
-          pathname.includes("notification") ? "active" : ""
+          pathname.includes("addCertificate") ? "active" : ""
         }`}
       >
         <LiaCertificateSolid/> {EditCertification}
@@ -173,9 +173,9 @@ const Sidebar = () => {
     </li>
     <li>
     <NavLink
-      to="/notification"
+      to="/addContact"
       className={`text-white p-2 left-0 hover:bg-gray-700 text-sm text-center flex items-center gap-2 ${
-        pathname.includes("notification") ? "active" : ""
+        pathname.includes("addContact") ? "active" : ""
       }`}
     >
       <MdContactEmergency/> {EditContactForm}

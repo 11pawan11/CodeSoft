@@ -13,18 +13,19 @@ export const useEditPagesContext = () => {
 };
 
 export const EditPagesProvider = ({ children }) => {
-  const { showToast } = useToaster();
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [newSkill, setNewSkill] = useState("");
   const [editCategoryIndex, setEditCategoryIndex] = useState(null);
   const [editedCategoryName, setEditedCategoryName] = useState("");
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(null);
+  const {showToast} = useToaster();
 
   const handleAddCategory = () => {
     if (newCategory.trim() !== "") {
       setCategories([...categories, { name: newCategory, skills: [] }]);
       setNewCategory("");
+
     }
 
 
@@ -112,7 +113,8 @@ export const EditPagesProvider = ({ children }) => {
         handleDeleteSkill,
         handleEditCategory,
         storeExperienceInFirebase,
-        storeEducationInFirebase
+        storeEducationInFirebase,
+        storeCategoriesInFirebase
               }}
     >
       {children}
