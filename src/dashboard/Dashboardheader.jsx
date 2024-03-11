@@ -12,7 +12,7 @@ const DashboardHeader = () => {
         <li className='w-full'><SearchButton/></li>
         <li><Darkmode/></li>
         <li><Notification/></li>  
-        <li><UserProfile auth={auth}/></li> 
+        <li className=''><UserProfile auth={auth}/></li> 
       </ul>           
     </div>
   );

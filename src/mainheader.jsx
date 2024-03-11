@@ -8,16 +8,11 @@ import Header from './component/header';
 
 const MainHeader = () => {
 
-  const images = [
-    '/1.png',
-    '/2.png', 
-    '/3.png', 
-    '/4.png',
-  ]
+  
   
   return (
     <>
-    <div className='overflow-hidden'>
+    <div className='overflow-hidden bg-black'>
     <div className='bg-transparent'>
     <Header/>
     </div>
@@ -25,8 +20,8 @@ const MainHeader = () => {
     <About/>
     </div>
     <Services/>
-    <div className=''>
-    <Mywork images={images}/>
+    <div className='bg-black'>
+    <Mywork/>
     </div>
     <Certification/>
     <footer className=''>

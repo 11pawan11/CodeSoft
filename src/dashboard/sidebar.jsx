@@ -11,7 +11,6 @@ import {
   EditMyWork,
   EditServices,
   EditSkill,
-  Notification,
   addImage,
   addText,
   dashboards,
@@ -181,17 +180,6 @@ const Sidebar = () => {
       <MdContactEmergency/> {EditContactForm}
     </NavLink>
   </li>
-              
-          <li>
-            <NavLink
-              to="/notification"
-              className={`text-white p-2 left-0 hover:bg-gray-700 text-sm text-center flex items-center gap-2 ${
-                pathname.includes("notification") ? "active" : ""
-              }`}
-            >
-              <FaBell /> {Notification}
-            </NavLink>
-          </li>
         </ul>
       </nav>
     </div>

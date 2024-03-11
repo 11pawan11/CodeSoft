@@ -15,7 +15,7 @@ const DefaultLayout = () => {
       <div className='relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden'>
         <DashboardHeader/>
         <main>
-          <div className='mx-auto w-screen p-2'>
+          <div className='mx-auto p-2'>
             <Outlet />
           </div>
         </main>

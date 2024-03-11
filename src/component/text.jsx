@@ -4,10 +4,10 @@ import { IoCodeSlashSharp } from "react-icons/io5";
 // this is mywork section
 export const seemore = "See More";
 export const previous = "Previous";
-export const work = "My Work";
+export const work = "My Project";
 
 // this is footer section
-export const email = "pawanupreti35@gmail.com";
+export const emailss = "pawanupreti35@gmail.com";
 export const contact = "Contact Info";
 export const phoneno = "+977-9866284088";
 export const sendMessage = "Send Message";
@@ -157,7 +157,7 @@ export const userProfile = [
 export const dashboards = "Dashboard";
 export const addImage = "Update Image";
 export const addText = "Update Text";
-export const Notification= "Notification";
+export const Notificationss= "Notifications";
 export const EditAbout = "Edit About Section";
 export const EditServices = "Edit Service Section";
 export const EditMyWork = "Edit Work Section";
@@ -170,4 +170,40 @@ export const EditEducation = "Update Education";
 //this is the section for firebae update 
 
 export const updateNow = "Update Now"
+
+
+// this is add work section
+
+export const AddProjects = "Add New Projects";
+export const AddProject = "Add Project";
+
+
+// this is the service section
+export const ServiceHeaderName= "Service Name";
+export const ServicePreviewSection = "View Data";
+export const ServiceLinks = "Links";
+export const ServiceDescription = "Service Description";
+export const ServiceImage = "Image";
+export const save = "Save";
+export const edit = "Edit";
+export const deleted = "Delete";
+export const submits = "Submit";
+export const addService = "Add Service";
+
+// this is the contact link section
+
+export const LinkedinLink = "https://www.linkedin.com/authwall?trk=bf&trkInfo=AQE2NpUaulYLowAAAY4uXGFwKyQKy5RWy4D6y6CQDuBLD2f-Ce0brwIh_HhJzyVDmUnl-kNueu2WUnPJqCcq7XXaEkgHPUpyblt5iA8w90Ln-GrIDA627e9EeeYkMgcjG_Cs-_Q=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fpawan-upreti-303ba317b";
+export const TelegramLink = "https://pawan_11.t.me/";
+export const FacebookLink = "https://www.facebook.com/Pawaan11?mibextid=ZbWKwL";
+export const GithubLink= "https://github.com/11pawan11";
+
+
+
+
+
+
+
+
+
+
 
