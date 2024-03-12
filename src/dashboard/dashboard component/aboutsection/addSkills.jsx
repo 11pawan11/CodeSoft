@@ -8,6 +8,7 @@ import { updateNow } from '../../../component/text';
 import { useToaster } from '../../../component/conext api/toast';
 
 const AddSkills = () => {
+    const {showToast} =useToaster();
     const { categories, setCategories, newCategory, setNewCategory, newSkill, setNewSkill, 
         editedCategoryName, setEditedCategoryName, editCategoryIndex, 
         setEditCategoryIndex, handleAddCategory, handleAddSkill, 
@@ -47,7 +48,16 @@ const AddSkills = () => {
                 [categoryIndex]: '' // Clear the input field after submission
             }));
         };
-    
+    const handleDelete = async () =>{
+        try {
+            await deleteDoc(doc(db, 'categories', ""));
+            showToast("Sucessfull deleted")
+
+        }
+        catch (error) {
+            showToast(error);
+        }
+    }
 
 
     return (
@@ -79,7 +89,7 @@ const AddSkills = () => {
                         {category.skills.map((skill, skillIndex) => (
                             <li key={skillIndex} className="flex items-center">
                                 {skill}
-                                <button onClick={() => handleDeleteSkill(categoryIndex, skillIndex)} className="ml-2 text-red-600 p-2 hover:bg-gray-700 hover:text-white rounded transistion-transform hover:transform  hover:scale-90">
+                                <button onClick={ handleDelete} className="ml-2 text-red-600 p-2 hover:bg-gray-700 hover:text-white rounded transistion-transform hover:transform  hover:scale-90">
                                  <MdDeleteOutline className='text-lg'/></button>
                             </li>
                         ))}

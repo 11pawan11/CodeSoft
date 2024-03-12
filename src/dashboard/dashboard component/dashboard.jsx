@@ -3,49 +3,43 @@ import { useEffect, useRef, useState } from 'react';
 import Chart from 'chart.js/auto';
 
 const Dashboard = () => {
-  const [imageData, setImageData] = useState([]);
+  const [projectData, setProjectData] = useState([]);
   const chartRef = useRef(null); // Reference to the chart instance
 
   useEffect(() => {
-    const fetchImageData = async () => {
+    const fetchProjectData = async () => {
       try {
         const db = getFirestore();
-        const querySnapshot = await getDocs(collection(db, 'serviceImages'));
+        const querySnapshot = await getDocs(collection(db, 'projects'));
         const data = querySnapshot.docs.map(doc => doc.data());
-        setImageData(data);
+        setProjectData(data);
       } catch (error) {
-        console.error('Error fetching image data:', error);
+        console.error('Error fetching project data:', error);
       }
     };
 
-    fetchImageData();
+    fetchProjectData();
   }, []);
 
   useEffect(() => {
-    if (imageData.length > 0) {
+    if (projectData.length > 0) {
       renderChart();
     }
-  }, [imageData]);
-
-  useEffect(() => {
-    if (chartRef.current && imageData.length > 0) {
-      renderChart();
-    }
-  }, [chartRef, imageData]);
+  }, [projectData]);
 
   const renderChart = () => {
-    const labels = imageData.map(item => item.label);
-    const counts = imageData.map(item => item.count);
+    const projectNames = projectData.map(project => project.name);
+    const imageCounts = projectData.map(project => project.imageUrl ? project.imageUrl.length : 0); // Check if imageUrl exists
 
-    const ctx = document.getElementById('imageChart');
-    if (ctx) {
+    if (chartRef.current) {
+      const ctx = chartRef.current.getContext('2d');
       new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: labels,
+          labels: projectNames,
           datasets: [{
-            label: 'Image Count',
-            data: counts,
+            label: 'Number of Images',
+            data: imageCounts,
             backgroundColor: 'rgba(54, 162, 235, 0.5)',
             borderColor: 'rgba(54, 162, 235, 1)',
             borderWidth: 1
@@ -54,7 +48,17 @@ const Dashboard = () => {
         options: {
           scales: {
             y: {
-              beginAtZero: true
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Number of Images'
+              }
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Project'
+              }
             }
           }
         }
@@ -63,9 +67,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
+    <div className='w-80 border'>
       <h2>Image Chart</h2>
-      <canvas id="imageChart" width="400" height="400" ref={chartRef}></canvas>
+      <canvas id="imageChart" style={{ height: "400px", width: '400px' }} ref={chartRef}></canvas>
     </div>
   );
 };

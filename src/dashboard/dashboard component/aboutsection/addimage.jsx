@@ -31,7 +31,7 @@ const AddImage = () => {
 
         // Update the about section in the database with the new image URL
         updateDoc(aboutRef, { imageUrl: url });
-
+f
         // Update the context with the new image URL
         updateImageUrl(url);
             });

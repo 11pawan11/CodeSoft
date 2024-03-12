@@ -160,7 +160,7 @@ export const addText = "Update Text";
 export const Notificationss= "Notifications";
 export const EditAbout = "Edit About Section";
 export const EditServices = "Edit Service Section";
-export const EditMyWork = "Edit Work Section";
+export const EditMyWork = "Edit Project Section";
 export const EditCertification = "Edit Certification Section";
 export const EditContactForm = "Edit Contact Section";
 export const EditSkill = "Update Skill";
@@ -176,19 +176,27 @@ export const updateNow = "Update Now"
 
 export const AddProjects = "Add New Projects";
 export const AddProject = "Add Project";
+export const EditProject = "Edit Project";
 
 
 // this is the service section
 export const ServiceHeaderName= "Service Name";
-export const ServicePreviewSection = "View Data";
+export const ServicePreviewSection = "View Upload Data";
 export const ServiceLinks = "Links";
 export const ServiceDescription = "Service Description";
 export const ServiceImage = "Image";
 export const save = "Save";
 export const edit = "Edit";
+export const cancel = "Cancel";
 export const deleted = "Delete";
 export const submits = "Submit";
 export const addService = "Add Service";
+export const uploadProject = "Upload Project";
+export const viewProject = "View Project";
+export const uploadImages = "Upload Image"
+export const drag = "Drag and drop your images here";
+export const browse = "or click to browse"
+
 
 // this is the contact link section
 
