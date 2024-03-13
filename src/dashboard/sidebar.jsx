@@ -1,8 +1,9 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { RiImageAddLine } from "react-icons/ri";
 import { CiText } from "react-icons/ci";
 import {
+  AccountSetting,
   EditAbout,
   EditCertification,
   EditContactForm,
@@ -11,11 +12,13 @@ import {
   EditMyWork,
   EditServices,
   EditSkill,
+  Logout,
+  Profile,
   addImage,
   addText,
   dashboards,
 } from "../component/text";
-import { MdCastForEducation, MdEventNote, MdOutlineMenuBook } from "react-icons/md";
+import { MdCastForEducation, MdEventNote, MdLogout, MdManageAccounts, MdOutlineMenuBook, MdSettings } from "react-icons/md";
 import { FaAngleDown, FaAngleUp, FaBars, FaBell, FaEdit, FaTimes } from "react-icons/fa";
 import { PiProjectorScreenLight } from "react-icons/pi";
 import { GrServices } from "react-icons/gr";
@@ -23,6 +26,9 @@ import { LiaCertificateSolid } from "react-icons/lia";
 import { GiSkills } from "react-icons/gi";
 import { MdContactEmergency } from "react-icons/md";
 import { useRef, useState } from "react";
+import { signOut } from 'firebase/auth';
+import { auth } from "../firebase/initialStart";
+import { useToaster } from "../component/conext api/toast";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -32,6 +38,22 @@ const Sidebar = () => {
 
   const dropDownRef = useRef();
   const clickRef = useRef();
+  const {showToast} = useToaster();
+
+  const navigate = useNavigate();
+
+
+  const handleLogout = async () => {
+    try
+     {
+      await signOut(auth);
+      navigate("/");
+      showToast("Logout Sucessfully");
+    }
+    catch(error){
+      showToast("Error during logout",error)
+    }
+  }
 
   window.addEventListener("click", (e) => {
     if (e.target !== clickRef.current && e.target !== dropDownRef.current) {
@@ -180,6 +202,38 @@ const Sidebar = () => {
       <MdContactEmergency/> {EditContactForm}
     </NavLink>
   </li>
+  <li>
+  <NavLink
+    to="/profile"
+    className={`text-white p-2 left-0 hover:bg-gray-700 text-sm text-center flex items-center gap-2 ${
+      pathname.includes("profile") ? "active" : ""
+    }`}
+  >
+    <MdManageAccounts/> {Profile}
+  </NavLink>
+</li>
+<li>
+<NavLink
+  to="/profile_setting"
+  className={`text-white p-2 left-0 hover:bg-gray-700 text-sm text-center flex items-center gap-2 ${
+    pathname.includes("profile") ? "active" : ""
+  }`}
+>
+  <MdSettings/> {AccountSetting}
+</NavLink>
+</li>
+<li>
+<NavLink
+  to="#"
+  className={`text-white p-2 left-0 hover:bg-gray-700 text-sm text-center flex items-center gap-2 ${
+    pathname.includes("logout") ? "active" : ""
+  }`} onClick={handleLogout}
+>
+  <MdLogout/> {Logout}
+</NavLink>
+</li>
+
+
         </ul>
       </nav>
     </div>

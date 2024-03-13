@@ -4,7 +4,7 @@ import { IoMdAdd } from "react-icons/io";
 import { useEditPagesContext } from '../../../component/conext api/textEditApi';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { updateNow } from '../../../component/text';
+import { save, updateNow } from '../../../component/text';
 import { useToaster } from '../../../component/conext api/toast';
 
 const AddSkills = () => {
@@ -48,20 +48,11 @@ const AddSkills = () => {
                 [categoryIndex]: '' // Clear the input field after submission
             }));
         };
-    const handleDelete = async () =>{
-        try {
-            await deleteDoc(doc(db, 'categories', ""));
-            showToast("Sucessfull deleted")
-
-        }
-        catch (error) {
-            showToast(error);
-        }
-    }
+       
 
 
     return (
-        <div className="mx-auto p-4 text-sm">
+        <div className="mx-auto p-4 text-sm dark:bg-slate-700">
         <h2 className="text-xl font-bold mb-4">Categories and Skills</h2>
         {categories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-4">
@@ -73,15 +64,15 @@ const AddSkills = () => {
                             type="text"
                             value={editedCategoryName}
                             onChange={(e) => setEditedCategoryName(e.target.value)}
-                            className="border border-gray-300 p-2 mr-2 "
+                            className="border border-gray-300 p-2  rounded dark:bg-slate-700 mr-2 "
                         />
-                        <button onClick={handleEditCategory} className="px-4 py-2 bg-blue-500 text-white rounded">Save</button>
+                        <button onClick={handleEditCategory} className="px-4 rounded py-2 bg-blue-500 dark:bg-gray-800 dark:hover:bg-slate-900 dark:border text-white rounded">{save}</button>
                     </div>
                 ) : (
                     <div className="flex items-center mb-2">
                         <h3 className="text-xl font-semibold mr-2">{category.name}</h3>
-                        <button onClick={() => setEditCategoryIndex(categoryIndex)} className="p-1 bg-blue-500 text-lg text-white rounded mr-2 hover:bg-gray-700 text-white rounded transistion-transform hover:transform  hover:scale-90"><CiEdit/></button>
-                        <button onClick={() => handleDeleteCategory(categoryIndex)} className="p-1 text-lg bg-red-500 text-white hover:bg-gray-700 text-white rounded transistion-transform hover:transform  hover:scale-90rounded">
+                        <button onClick={() => setEditCategoryIndex(categoryIndex)} className="p-1 bg-blue-500 text-lg text-white rounded mr-2 hover:bg-blue-900 dark:bg-gray-800 dark:hover:bg-slate-900  text-white rounded transistion-transform hover:transform  hover:scale-90"><CiEdit/></button>
+                        <button onClick={() => handleDeleteCategory(categoryIndex)} className="p-1 text-lg bg-red-500 text-white hover:bg-red-600 dark:bg-gray-800 dark:hover:bg-slate-900  text-white rounded transistion-transform hover:transform  hover:scale-90rounded">
                         <MdDeleteOutline className='hover:transistion-transform hover:duration-500'/></button>
                     </div>
                 )}
@@ -89,8 +80,8 @@ const AddSkills = () => {
                         {category.skills.map((skill, skillIndex) => (
                             <li key={skillIndex} className="flex items-center">
                                 {skill}
-                                <button onClick={ handleDelete} className="ml-2 text-red-600 p-2 hover:bg-gray-700 hover:text-white rounded transistion-transform hover:transform  hover:scale-90">
-                                 <MdDeleteOutline className='text-lg'/></button>
+                                <button onClick={() =>handleDeleteSkill(categoryIndex,skillIndex)} className="ml-2 text-red-600 dark:text-white p-2 hover:bg-red-700 dark:bg-gray-800 dark:hover:bg-slate-900  hover:text-white rounded transistion-transform hover:transform  hover:scale-90">
+                                 <MdDeleteOutline className='text-lg dark-text-white'/></button>
                             </li>
                         ))}
                     </ul>
@@ -101,7 +92,7 @@ const AddSkills = () => {
                         type="text"
                         value={newSkillInputs[categoryIndex] || ''}
                         onChange={(e) => handleInputChange(categoryIndex, e.target.value)}
-                        className="border border-gray-300 p-2 mr-2"
+                        className="border dark:bg-gray-800 rounded border-gray-300 p-2 mr-2"
                         placeholder="Add new skill"
                         onFocus={() => setActiveCategoryIndex(categoryIndex)}
                         onBlur={() => setActiveCategoryIndex(null)}
@@ -109,9 +100,9 @@ const AddSkills = () => {
                     />
                     <button
                         onClick={() => handleAddSkillSubmit(categoryIndex)}
-                        className="p-2 hover:bg-gray-700 bg-blue-500 text-white rounded 
+                        className="p-2 hover:bg-blue-900 bg-blue-500 text-white rounded 
                         transistion-transform hover:transform  
-                        hover:scale-90 bg-blue-500 text-white rounded">
+                        hover:scale-90 bg-blue-500 text-white rounded dark:bg-gray-800 dark:hover:bg-slate-900 ">
                         <IoMdAdd className='text-lg' />
                     </button>
                 </div>
@@ -122,15 +113,15 @@ const AddSkills = () => {
                     type="text"
                     value={newCategory}
                     onChange={(e) => setNewCategory(e.target.value)}
-                    className="border border-gray-300 p-2 mr-2 "
+                    className="border rounded dark:bg-gray-800 border-gray-300 p-2 mr-2 "
                     placeholder="Add new category"
                 />
-                <button onClick={handleAddCategory} className="p-2 hover:bg-gray-700 bg-blue-500 text-white rounded transistion-transform hover:transform  hover:scale-90">
+                <button onClick={handleAddCategory} className="p-2 hover:bg-blue-900 bg-blue-500 dark:bg-gray-800 dark:hover:bg-slate-900  text-white rounded transistion-transform hover:transform  hover:scale-90">
                 <IoMdAdd className='text-lg'/>
                 </button>
             </div>
             <div className="mt-4">
-                <button onClick={storeCategoriesInFirebase} className="px-4 py-2 text-sm bg-green-500 text-white rounded p-2  text-white rounded transistion-transform hover:transform  hover:scale-90">{updateNow}</button>
+                <button onClick={storeCategoriesInFirebase} className="px-4 py-2 text-sm bg-green-500 dark:bg-gray-800 dark:hover:bg-slate-900  text-white rounded p-2  text-white rounded transistion-transform hover:transform  hover:scale-90">{updateNow}</button>
             </div>
         </div>
     );

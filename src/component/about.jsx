@@ -28,8 +28,17 @@ const About = () => {
         </div>
         <div className="flex flex-col sm:w-2/3">
           <h1 className="text-white font-bold text-3xl p-2">{about}</h1>
-          {/* Use textUpdate from context */}
-          <p className="text-white text-sm text-justify p-2">{textUpdate || AboutMy}</p>
+
+           {/* Use textUpdate from context */}
+          {/* Render text content safely using dangerouslySetInnerHTML */}
+          <p
+            className="text-white text-sm text-justify p-2"
+            dangerouslySetInnerHTML={{ __html: textUpdate || AboutMy }}
+          ></p>
+          {/* Use textUpdate from context 
+          <p className="text-white text-sm text-justify p-2">{textUpdate || AboutMy}</p> */}
+
+          
           <ul className="text-white p-2 flex space-x-6 text-sm relative flex-wrap">
             {AboutMe.map((about) => (
               <li

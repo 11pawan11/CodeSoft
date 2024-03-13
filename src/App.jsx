@@ -14,10 +14,12 @@ import routes from './dashboard/dashboard component/dashboardRoute';
 import { ImageProvider } from './component/conext api/imageContext';
 import { ToastProvider } from './component/conext api/toast';
 import { EditPagesProvider } from './component/conext api/textEditApi';
+import { SearchProvider } from './component/conext api/searchContext';
 
 const App = () => {
   return (
     <Router>
+    <SearchProvider>
     <ToastProvider>
     <EditPagesProvider>
     <ImageProvider>
@@ -49,6 +51,7 @@ const App = () => {
       </ImageProvider>
       </EditPagesProvider>
     </ToastProvider>
+    </SearchProvider>
     </Router>
   );
 }

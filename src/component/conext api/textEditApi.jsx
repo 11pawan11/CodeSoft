@@ -22,7 +22,8 @@ export const EditPagesProvider = ({ children }) => {
   const {showToast} = useToaster();
 
   const handleAddCategory = () => {
-    if (newCategory.trim() !== "") {
+    if (newCategory.trim() !== "")
+     {
       setCategories([...categories, { name: newCategory, skills: [] }]);
       setNewCategory("");
 
@@ -40,7 +41,7 @@ export const EditPagesProvider = ({ children }) => {
     const updatedCategories = [...categories];
     updatedCategories[categoryIndex].skills.splice(skillIndex, 1);
     setCategories(updatedCategories);
-    showToast(`${skillIndex} deleted sucessfully`, "", "red");
+    showToast(`Deleted sucessfully`, "", "red");
   };
 
   const handleDeleteCategory = (index) => {

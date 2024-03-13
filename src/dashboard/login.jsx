@@ -3,15 +3,17 @@ import React, { useEffect, useState } from "react";
 import { LuMails } from "react-icons/lu";
 import { FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
 import { useForm, useFormState } from "react-hook-form";
-import { auth } from "../firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase/initialStart";
+import { useToaster } from "../component/conext api/toast";
 
 const Login = () => {
   const { register, handleSubmit, control, formState: { errors } } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
+  const {showToast}= useToaster();
 
   
   const handlePassworsd = () =>{
@@ -21,12 +23,12 @@ const Login = () => {
       try
       {
         await signInWithEmailAndPassword(auth, data.email, data.password);
-        console.log("Sucessfully logged in");
+        showToast("Sucessfully logged in");
         navigate('/defaultLayout');
          
       } 
       catch(errors){
-        console.error("Invalid Credentials",errors.message);
+        showToast("Invalid Credentials",errors.message);
         if (errors.code === "auth/invalid-credential" || errors.code === "auth/user-not-found"){
             setErrorMessage("Invalid email or password");
         }

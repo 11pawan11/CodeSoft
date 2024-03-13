@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { addDoc, collection, getDocs, getFirestore, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../../firebase/firebase';
 import { ServiceDescription, ServiceHeaderName, ServiceImage, ServiceLinks, ServicePreviewSection, addService, browse, deleted, drag, edit, save, submits, uploadImages } from '../../../component/text';
 import { useToaster } from '../../../component/conext api/toast';
 import { FaTimes } from 'react-icons/fa';
+import { storage } from '../profile section/myaccount';
 
 const db = getFirestore();
 

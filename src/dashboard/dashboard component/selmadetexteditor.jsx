@@ -1,10 +1,16 @@
-
-
 import 'quill/dist/quill.snow.css'
 import ReactQuill from 'react-quill'
-import { AboutMy } from '../../component/text';
+import { ChangeImage } from '../../component/text';
+import { useEffect, useState } from 'react';
 
-const TextEditor = () => {
+const TextEditors = ({ initialText, onTextChange }) => { 
+   const [editorState, setEditorState] = useState(initialText);
+
+    // Update editorState whenever initialText changes
+    useEffect(() => {
+      setEditorState(initialText);
+    }, [initialText]);
+
   
   var modules = {
     toolbar: [
@@ -32,19 +38,21 @@ const TextEditor = () => {
 
   const handleProcedureContentChange = (content) => {
     // console.log("content---->", content);
+    setEditorState(content);
+    onTextChange(content);
   };
 
   return (
     <div className='dark:text-white items-center mb-4'>
-      <h1 className='text-xl font-bold'>About Section Text Editor</h1>
+      <h1 className='text-2xl font-bold mb-4 '>{ChangeImage}</h1>
       <div className='justify-center'>
         <ReactQuill
           theme="snow"
           modules={modules}
           formats={formats}
-          defaultValue={AboutMy}
+          value={editorState}
           onChange={handleProcedureContentChange}
-          className=' dark:text-white lg:w-[800px] textify sm:w-[300px]'
+          className=' dark:text-black dark:bg-zinc-400 rounded '
         />      
       </div>
     </div>
@@ -52,4 +60,4 @@ const TextEditor = () => {
 
 }
 
-export default TextEditor;
+export default TextEditors;

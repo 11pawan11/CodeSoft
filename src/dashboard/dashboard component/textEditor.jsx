@@ -4,7 +4,6 @@ import 'react-quill/dist/quill.snow.css';
 import { skillData } from '../../component/text';
 
 const TextEditor = ({ initialText, onTextChange }) => {
-  const [editorState, setEditorState] = useState(initialText);
   // console.log("first", initialText)
 
     // Update editorState whenever initialText changes
@@ -24,7 +23,7 @@ const TextEditor = ({ initialText, onTextChange }) => {
         theme="snow"
         value={editorState}
         onChange={handleEditorChange}
-        className='textify lg:w-[750px] mb-4 md:w-[500px] sm:w-[300px]]'
+        className='w-full mb-4'
       />
     </div>
   );

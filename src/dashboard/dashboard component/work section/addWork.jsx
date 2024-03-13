@@ -28,7 +28,7 @@ import {
   uploadProject,
   viewProject,
 } from "../../../component/text";
-import { storage } from "../../../firebase/firebase";
+import { storage } from "../../../firebase/initialStart";
 import { useToaster } from "../../../component/conext api/toast";
 import { FaTimes } from "react-icons/fa";
 
@@ -256,7 +256,7 @@ const AddWork = () => {
             required
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-4 py-2 mb-4dark:bg-gray-800 dark:hover:bg-slate-700  focus:outline-none focus:border-blue-500 dark:bg-gray-800 dark:hover:bg-slate-700"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 mb-4 dark:bg-gray-800 dark:hover:bg-slate-700  focus:outline-none focus:border-blue-500 dark:bg-gray-800 dark:hover:bg-slate-700"
           />
           {nameError && <p className="text-red-500">{nameError}</p>}
           <textarea

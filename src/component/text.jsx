@@ -60,6 +60,7 @@ export const ServicesRoute = [
 
 
 // this is about section
+export const ChangeImage = "Change About Section Image";
 export const about = "About Me";
 export const AboutMy = `With a solid background in IT 👨‍💻. I've skills in Python, DevOps, JavaScript and its library for building user interfaces React.js, 
                         TypeScript, MS Word, All kinds of Tender related stuff. My expertise extends to
@@ -87,7 +88,7 @@ export const skillData =  [
 
 
 // this is my experience section
-
+export const ExpText = "Experience and Worked Period";
 export const experienceData = 
 [
     {
@@ -103,7 +104,7 @@ export const experienceData =
   ];
 
 // this is my education section
-
+export const YourQualification = " Your Qualifaiction (Education)";
 export const educationData =
 [
     {
@@ -131,6 +132,8 @@ export const country = "Nepal";
   
 // this is the certifications section
 export const certifications = "My Certification";
+export const UploadCerti = "Uploaded Certificates";
+export const chooseImage = "Select Image"; 
 
 
 
@@ -138,11 +141,11 @@ export const certifications = "My Certification";
 
 export const userProfile = [
 {
-  "link" : '/myprofile',
+  "link" : '/profile',
   "title" : 'My Profile'
   },
 {
-  "link" : '/myAccount',
+  "link" : '/profile_setting',
   "title" : 'My Account'
 },
 {
@@ -166,6 +169,11 @@ export const EditContactForm = "Edit Contact Section";
 export const EditSkill = "Update Skill";
 export const EditExperience = "Update Experience";
 export const EditEducation = "Update Education";
+export const Logout = "Logout";
+export const AccountSetting = "Account Setting";
+export const Profile = "MyProfile";
+
+
 
 //this is the section for firebae update 
 
@@ -181,6 +189,7 @@ export const EditProject = "Edit Project";
 
 // this is the service section
 export const ServiceHeaderName= "Service Name";
+export const uploadNow = "Upload Now";
 export const ServicePreviewSection = "View Upload Data";
 export const ServiceLinks = "Links";
 export const ServiceDescription = "Service Description";
@@ -204,6 +213,15 @@ export const LinkedinLink = "https://www.linkedin.com/authwall?trk=bf&trkInfo=AQ
 export const TelegramLink = "https://pawan_11.t.me/";
 export const FacebookLink = "https://www.facebook.com/Pawaan11?mibextid=ZbWKwL";
 export const GithubLink= "https://github.com/11pawan11";
+
+
+//this is setting user setting
+export const uploadLine = "SVG, PNG, JPG or GIF";
+export const uploadLines = "(max, 800 X 800px)";
+export const EditPhoto = "Edit your photo";
+export const YourPhoto = "Upload Your Photo";
+
+
 
 
 
