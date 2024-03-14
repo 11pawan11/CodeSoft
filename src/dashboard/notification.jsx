@@ -109,10 +109,10 @@ const Notification = () => {
           ref={dropdown}
           onFocus={() => setDropdownOpen(true)}
           onBlur={() => setDropdownOpen(false)}
-          className={`absolute -right-27 mt-5 flex h-90 w-75 flex-col rounded-sm border border-slate-500 bg-white p-2 shadow-default dark:border-gray-100 dark:bg-gray-600 sm:right-0 sm:w-80 ${dropdownOpen === true ? 'block' : 'hidden'
+          className={`absolute -right-[65px] mt-5 flex h-90 w-75 flex-col z-50 rounded-sm border border-slate-500 bg-white p-2 shadow-default dark:border-gray-100 dark:bg-gray-600 sm:right-0 sm:w-80 ${dropdownOpen === true ? 'block' : 'hidden'
             }`}
         >
-          <div className="px-4.5 py-2">
+          <div className="-right-27 py-2">
             <p className='font-semibold border-b border-gray-400 mb-2'>{Notificationss}</p>
             {messages.length === 0 && <p className='items-center justify-center text-center'>No Notification Available</p>}
           </div>

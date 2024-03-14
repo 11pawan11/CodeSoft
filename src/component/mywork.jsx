@@ -67,40 +67,42 @@ const Mywork = () => {
     <div className='bg-black text-white'>
       <p className='text-white text-center text-4xl sm:text-center font-bold'>{work}</p>
       <div className='justify-center bg-black gap-4 items-center'>
-        {projects.slice((currentPage - 1) * projectsPerPage, currentPage * projectsPerPage).map((project, projectIndex) => (
-          <div key={project.id} className="bg-black p-6 rounded-lg">
-            <div className="bg-black grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className='border border-pink-700 rounded-sm'>
-                <div className='main-image bg-black'>
-                  <img
-                    src={project.images[currentImageIndex].imageUrl}
-                    alt={`Photo ${currentImageIndex + 1}`}
-                    className='p-2 w-full h-80 object-contain'
-                  />
-                </div>
-                <div className='second-image flex p-2 gap-2 justify-center transition-all duration-700'>
-                  <button onClick={handlePrev}><GrPrevious /></button>
-                  {project.images.map((image, index) => (
-                    <img
-                      key={index}
-                      src={image.imageUrl}
-                      alt={`T ${index + 1}`}
-                      className={`w-10  items-center justify-items-center hover:opacity-50 ${index === currentImageIndex ? 'active' : ''}`}
-                      onClick={() => setCurrentImageIndex(index)}
-                    />
-                  ))}
-                  <button onClick={handleNext}><GrNext /></button>
-                </div>
-              </div>
-              <div className="flex bg-black">
-                <div>
-                  <h3 className="text-xl font-semibold">{project.name}</h3>
-                  <p className='text-[14px] p-1 text-justify'>{project.description}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+      {projects.slice((currentPage - 1) * projectsPerPage, currentPage * projectsPerPage).map((project, projectIndex) => (
+  <div key={project.id} className="bg-black p-6 rounded-lg">
+    <div className="bg-black grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className='border border-pink-700 rounded-sm'>
+        <div className='main-image bg-black'>
+          {project.images[currentImageIndex] && ( // Check if the image exists
+            <img
+              src={project.images[currentImageIndex].imageUrl}
+              alt={`Photo ${currentImageIndex + 1}`}
+              className='p-2 w-full h-80 object-contain'
+            />
+          )}
+        </div>
+        <div className='second-image flex p-2 gap-2 justify-center transition-all duration-700'>
+          <button onClick={handlePrev}><GrPrevious /></button>
+          {project.images.map((image, index) => (
+            <img
+              key={index}
+              src={image.imageUrl}
+              alt={`T ${index + 1}`}
+              className={`w-10  items-center justify-items-center hover:opacity-50 ${index === currentImageIndex ? 'active' : ''}`}
+              onClick={() => setCurrentImageIndex(index)}
+            />
+          ))}
+          <button onClick={handleNext}><GrNext /></button>
+        </div>
+      </div>
+      <div className="flex bg-black">
+        <div>
+          <h3 className="text-xl font-semibold">{project.name}</h3>
+          <p className='text-[14px] p-1 text-justify'>{project.description}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+))}
         {/* Pagination */}
         <div className='text-center'>
           {Array.from({ length: Math.ceil(projects.length / projectsPerPage) }).map((_, index) => (
