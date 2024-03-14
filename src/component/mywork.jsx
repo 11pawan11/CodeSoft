@@ -85,7 +85,7 @@ const Mywork = () => {
                       key={index}
                       src={image.imageUrl}
                       alt={`T ${index + 1}`}
-                      className={`w-[60px]  items-center justify-items-center hover:opacity-50 ${index === currentImageIndex ? 'active' : ''}`}
+                      className={`w-10  items-center justify-items-center hover:opacity-50 ${index === currentImageIndex ? 'active' : ''}`}
                       onClick={() => setCurrentImageIndex(index)}
                     />
                   ))}
@@ -95,7 +95,7 @@ const Mywork = () => {
               <div className="flex bg-black">
                 <div>
                   <h3 className="text-xl font-semibold">{project.name}</h3>
-                  <p className='text-[10px] p-1 text-justify'>{project.description}</p>
+                  <p className='text-[14px] p-1 text-justify'>{project.description}</p>
                 </div>
               </div>
             </div>

@@ -24,7 +24,7 @@ const Profile = () => {
               className="flex cursor-pointer items-center justify-center gap-2 rounded bg-primary py-1 px-2 text-sm font-medium text-white hover:bg-opacity-80 xsm:px-4"
             >
               <input type="file" name="cover" id="cover" className="sr-only" />
-              <span className='dark:text-white z-2 dark:bg-gray-800 dark:hover:bg-slate-900 bg-blue-500 hover:bg-blue-700 p-1 text-center rounded'>{edit}</span>
+              {/* <span className='dark:text-white z-2 dark:bg-gray-800 dark:hover:bg-slate-900 bg-blue-500 hover:bg-blue-700 p-1 text-center rounded'>{edit}</span> */}
             </label>
           </div>
         </div>

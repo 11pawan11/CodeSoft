@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import InputField from "../helper/input";
 import { LuMails } from "react-icons/lu";
 import { FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
 import { useForm, useFormState } from "react-hook-form";
@@ -19,25 +18,50 @@ const Login = () => {
   const handlePassworsd = () =>{
     setShowPassword(!showPassword);
   }
-  const onSubmit = async (data) => {
-      try
-      {
-        await signInWithEmailAndPassword(auth, data.email, data.password);
-        showToast("Sucessfully logged in");
-        navigate('/defaultLayout');
+  // const onSubmit = async (data) => {
+  //     try
+  //     {
+  //       await signInWithEmailAndPassword(auth, data.email, data.password);
+  //       localStorage.getItem()
+  //       showToast("Sucessfully logged in");
+  //       navigate('/defaultLayout');
          
-      } 
-      catch(errors){
-        showToast("Invalid Credentials",errors.message);
-        if (errors.code === "auth/invalid-credential" || errors.code === "auth/user-not-found"){
-            setErrorMessage("Invalid email or password");
-        }
-        else {
-          setErrorMessage("Error during login. Please try again later");
-        }
-      }
-     
- }
+  //     } 
+  //     catch(errors){
+  //       showToast("Invalid Credentials",errors.message);
+  //       if (errors.code === "auth/invalid-credential" || errors.code === "auth/user-not-found"){
+  //           setErrorMessage("Invalid email or password");
+  //       }
+  //       else {
+  //         setErrorMessage("Error during login. Please try again later");
+  //       }
+  //     }     
+//  }
+const loginUser = async (data) => {
+  try {
+    await signInWithEmailAndPassword(auth, data.email, data.password);
+    showToast("Successfully logged in");
+    localStorage.setItem('isLoggedIn', 'true'); // Store login state
+    navigate('/defaultLayout');
+  } catch (error) {
+    showToast("Invalid Credentials", error.message);
+    if (error.code === "auth/invalid-credential" || error.code === "auth/user-not-found") {
+      setErrorMessage("Invalid email or password");
+    } else {
+      setErrorMessage("Error during login. Please try again later");
+    }
+  }
+}
+
+useEffect(() => {
+  // Check if the user is already logged in, if yes, redirect to dashboard
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  if (isLoggedIn) {
+    navigate('/defaultLayout');
+  }
+  
+}, []);
+
   return (
     <>
       <div className="flex justify-center items-center h-screen md:h-screen sm:h-screen overflow-hidden">
@@ -48,7 +72,7 @@ const Login = () => {
                 Admin Login
               </p> 
               {errorMessage && <p className="text-red-600 text-sm sm:text-center">{errorMessage}</p>}
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 ">
+              <form onSubmit={handleSubmit(loginUser)} className="flex flex-col gap-6 ">
                 <div className="relative">
                     <input type="text" placeholder="Enter your email" {...register('email', {
                       required: "Email is required",

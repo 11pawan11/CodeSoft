@@ -52,6 +52,7 @@ const Header = () => {
             <Link to="/">
               <img
                 src="/pawan_logo.png"
+                id="HomeSection"
                 alt="Logo"
                 className="h-40 mt-24 rounded-full"
               />
@@ -198,7 +199,7 @@ const Header = () => {
             from{" "}
             <span className="font-bold text-pink-700 text-6xl pasa">{country}</span>
           </p>
-          <p className="font-semibold text-white text-lg sm:text-2xl transition-all duration-1000 hover:text-blue-900">
+          <p className="font-semibold text-white text-lg sm:text-2xl transition-all duration-1000 hover:text-pink-800">
              <TypeWriter text={position} delay={100} />
           </p>
         </div>

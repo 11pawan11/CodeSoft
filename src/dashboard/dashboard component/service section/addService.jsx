@@ -269,7 +269,7 @@ const AddService = () => {
               ) : (
                 <p className="text-sm overflow-hidden overflow-ellipsis whitespace-nowrap">{service.path}</p>
               )}
-              <p className="text-sm font-semibold mb-1">{ServiceImage}</p>
+              {/* <p className="text-sm font-semibold mb-1">{ServiceImage}</p>
               {service.editable ? (
                 <input
                   type='file'
@@ -281,7 +281,7 @@ const AddService = () => {
                   <img src={service.imageUrl} alt='Selected Photo' className='border h-20 w-20 '/>
                   <p className="text-sm overflow-hidden overflow-ellipsis whitespace-nowrap">{service.imageUrl}</p>
                 </div>
-              )}
+              )} */}
               <div className="flex justify-end mt-4">
                 {service.editable ? (
                   <button className="bg-green-500 text-white py-2 px-4 rounded-md mr-4 hover:bg-green-600 focus:outline-none dark:bg-gray-800 dark:hover:bg-slate-700 focus:bg-green-600" onClick={() => handleSave(service.id)}>{save}</button>

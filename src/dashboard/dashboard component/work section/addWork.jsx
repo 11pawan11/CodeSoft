@@ -372,16 +372,18 @@ const AddWork = () => {
                   <p>{project.description}</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                {project.images.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image.imageUrl}
-                    alt={image.description}
-                    className="w-full h-auto rounded-md"
-                  />
-                ))}
-              </div>
+              {project.images && project.images.length > 0 && ( 
+        <div className="grid grid-cols-2 gap-4">
+          {project.images.map((image, index) => (
+            <img
+              key={index}
+              src={image.imageUrl}
+              alt={image.description}
+              className="w-full h-auto rounded-md"
+            />
+          ))}
+        </div>
+      )}
               <div className="flex mt-4 justify-center space-x-2">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-gray-800 dark:hover:bg-slate-700"

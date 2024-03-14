@@ -13,6 +13,7 @@ import {
   emailss,
   phoneno,
   sendMessage,
+  sentMessage,
 } from "./text";
 import { useState } from 'react';
 import { collection, addDoc, getFirestore } from 'firebase/firestore';
@@ -21,6 +22,7 @@ const Footer = () => {
   const [name, setName] = useState('');
   const [emailUpdate, setEmailUpdate] = useState('');
   const [message, setMessage] = useState('');
+  const [isMessageSent, setIsMessageSent] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,8 +41,9 @@ const Footer = () => {
       setName('');
       setEmailUpdate('');
       setMessage('');
+      setIsMessageSent(true);
 
-      console.log("Message send sucessfully")
+      // console.log("Message send sucessfully")
 
       // Send notification to your phone using Firebase Cloud Messaging (FCM)
       // Implement FCM server-side logic to send notifications
@@ -100,10 +103,11 @@ const Footer = () => {
             ></textarea>
             {/* Submit Button */}
             <button
-              type="submit"
+              type="submit" 
               className="border border-pink-800 text-white p-2 text-sm rounded w-full md:w-auto  hover:bg-pink-700 mx-auto">
                {sendMessage}
             </button>
+            {isMessageSent && <p className="text-pink-500">{sentMessage}</p>}
           </form>        
         </div>
         <div className="text-white mt-8 lg:mx-20">

@@ -15,6 +15,7 @@ export const copyRight = "Copyright @2024 to";
 export const MyName = "Pawan Upreti";
 export const downloadCv = "Download CV";
 export const contactForm = "Contact Form";
+export const sentMessage = "Your message has been sent successfully. Thank you for contacting me!";
 
 // this is services section
 export const services = "My Services";

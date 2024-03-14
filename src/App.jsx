@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes, Navigate } from 'react-router-dom';
 import MainHeader from './mainheader';
 import About from './component/about';
 import Footer from './component/footer';
@@ -15,12 +15,15 @@ import { ImageProvider } from './component/conext api/imageContext';
 import { ToastProvider } from './component/conext api/toast';
 import { EditPagesProvider } from './component/conext api/textEditApi';
 import { SearchProvider } from './component/conext api/searchContext';
+import { UserContextProvider } from './component/conext api/userContext';
 
 const App = () => {
+  
   return (
     <Router>
-    <SearchProvider>
     <ToastProvider>
+    <UserContextProvider>
+    <SearchProvider>   
     <EditPagesProvider>
     <ImageProvider>
         <Routes>
@@ -36,6 +39,7 @@ const App = () => {
           <Route path='/defaultLayout' element={<DefaultLayout />} />
 
           <Route element={<DefaultLayout />}>
+          {/* <Route path='/dashboard' element={<Navigate to="/dashboard" />} /> */}
             {routes.map((route, index) => {
               const { link, component: Component } = route;
               return (
@@ -50,8 +54,10 @@ const App = () => {
         </Routes>
       </ImageProvider>
       </EditPagesProvider>
-    </ToastProvider>
     </SearchProvider>
+    </UserContextProvider>
+    </ToastProvider>
+
     </Router>
   );
 }

@@ -53,7 +53,7 @@ const AddContact = () => {
           <p><span className='font-bold'>Message:</span> {message.message}</p>
           <p>{formatTimestamp(message.timestamp)}</p>
 
-          <button onClick={() => handleDelete(message.id)} className='p-1 mt-2 opacity text-white rounded bg-red-600'>{deleted}</button>
+          <button onClick={() => handleDelete(message.id)} className='p-1 mt-2 dark:bg-gray-700 dark:hover:bg-slate-800 opacity text-white rounded bg-red-600'>{deleted}</button>
         </div>
       ))}
       </div>

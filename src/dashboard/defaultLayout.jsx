@@ -1,27 +1,31 @@
-import { useEffect } from 'react';
-import { auth } from '../firebase/initialStart';
+import { useEffect, useState } from 'react';
+import { UserContextProvider, useUserContext } from '../component/conext api/userContext';
 import DashboardHeader from './Dashboardheader';
 import Sidebar from './sidebar';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { useToaster } from '../component/conext api/toast';
+import Loader from '../loader';
 
 const DefaultLayout = () => {
-  const user = auth.currentUser;
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  let navigate = useNavigate();
 
-  if (!user ){
-    navigate('/login');
+  const { user } = useUserContext();
+  const navigate = useNavigate(); 
+    if (!user) {
+    return <Loader/>
   }
 
- 
 
 
 
   return (
+    <>
+    <UserContextProvider/>
     <div  className='flex h-screen w-full dark:bg-gray-500 dark:text-white'>
-      <Sidebar open={open} />
-      <div className='relative flex flex-1 flex-col z-999 overflow-y-auto overflow-x-hidden'>
-        <DashboardHeader/>
+      <Sidebar  sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}  />
+      <div className='relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden'>
+        <DashboardHeader  sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <main>
           <div className='mx-auto p-2'>
             <Outlet />
@@ -29,6 +33,8 @@ const DefaultLayout = () => {
         </main>
       </div>
     </div>
+    <UserContextProvider/>
+    </>
   );
 };
 
