@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <!-- operands -->
+      <button class="button operator" onclick="handleOperator('+')">+</button>
+      <button class="button operator" onclick="handleOperator('-')">-</button>
+      <button class="button operator" onclick="handleOperator('*')">x</button>
+      <button class="button operator" onclick="handleOperator('/')">/</button>
+
+      <!-- numbers and operands -->
+      <button class="button" onclick="handleNumber(7)">7</button>
+      <button class="button" onclick="handleNumber(8)">8</button>
+      <button class="button" onclick="handleNumber(9)">9</button>
+      <button class="button" onclick="handleOperator('%')">%</button>
+      <button class="button" onclick="handleNumber(4)">4</button>
+      <button class="button" onclick="handleNumber(5)">5</button>
+      <button class="button" onclick="handleNumber(6)">6</button>
+      <button class="button" onclick="handleOperator('^')">^</button>
+      <button class="button" onclick="handleNumber(1)">1</button>
+      <button class="button" onclick="handleNumber(2)">2</button>
+      <button class="button" onclick="handleNumber(3)">3</button>
+      <button class="button" onclick="handleDecimal()">.</button>
+      <button class="button AC" onclick="handleClear()">AC</button>
+      <button class="button C" onclick="handleClear()">C</button>
+      <button class="button" onclick="handleNumber(0)">0</button>
+      <button class="button equal" onclick="handleCalculate()">=</button>
+    </div>
+  </div>
+  <!-- import javascript -->
+  <script src="calc.js"></script>
+</body>
+</html>
