@@ -1,7 +1,9 @@
+User
 import React, { useEffect, useState } from 'react';
 import { certifications } from './text';
 import { GiTireIronCross } from 'react-icons/gi';
 import { getDocs, collection, getFirestore } from 'firebase/firestore';
+
 
 const Certification = () => {
   const [preview, setPreview] = useState(null);
@@ -51,19 +53,19 @@ const Certification = () => {
           <span>{certifications}</span>
         </div>
         <div className="bg-black grid grid-cols-1 sm:grid-cols-4 justify-center gap-4">
-          {certificates.map(certificate => (
-            <div key={certificate.id} className="bg-black p-4 justify-center w-full flex items-center">
-              <img
-                key={certificate.id}
-                src={certificate.imageUrl}
-                alt="pic"
-                className="w-full h-auto rounded object-center hover:-translate-y-3 transition-all duration-700 cursor-pointer"
-                onClick={() => handlePreview(certificate.imageUrl)}
-                style={{ maxWidth: '200px' }} // Adjust max-width as needed
-              />
+        {certificates.map(certificate => (
+            <div key={certificate.id} className="bg-black p-4 justify-center w-full">
+            <img
+              key={certificate.id}
+              src={certificate.imageUrl}
+              alt="pic"
+              className="lg:w-full md:w-1/2 sm:w-40 h-60 rounded mb-4 object-center hover:-translate-y-3 transition-all duration-700 cursor-pointer"
+              onClick={() => handlePreview(certificate.imageUrl)}
+            />
             </div>            
           ))}
         </div>
+    
       </div>
 
       {preview && (
@@ -83,5 +85,3 @@ const Certification = () => {
     </>
   );
 };
-
-export default Certification;
