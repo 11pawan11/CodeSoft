@@ -11,7 +11,7 @@ Programming Language:
 
 //created using react-vite
 //To run project
-npm install .
+npm install -f .
 npm run dev
 
 //login credentials 
